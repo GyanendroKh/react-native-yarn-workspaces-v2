@@ -1,9 +1,12 @@
 #!/usr/bin/env node
-import fs from 'fs';
-import path from 'path';
-import { symlinkPackage } from './utils';
+const fs = require('fs');
+const path = require('path');
+const { symlinkPackage } = require('./utils');
 
-const symlinkNecessaryPackages = (projectPath: string) => {
+const symlinkNecessaryPackages = projectPath => {
+  /**
+   * These are the packages which the react-native package use.
+   */
   const necessaryPkgs = [
     'react-native',
     '@react-native-community/cli-platform-android',
@@ -12,7 +15,7 @@ const symlinkNecessaryPackages = (projectPath: string) => {
     'jsc-android'
   ];
 
-  const extras: string[] = JSON.parse(
+  const extras = JSON.parse(
     fs.readFileSync(path.join(projectPath, 'package.json')).toString()
   )['workspaces-symlink'];
   if (extras) {

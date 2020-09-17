@@ -1,9 +1,9 @@
-import fs, { Stats } from 'fs';
-import findYarnWorkspaceRoot from 'find-yarn-workspace-root';
-import path from 'path';
-import mkdirp from 'mkdirp';
+const fs = require('fs');
+const findYarnWorkspaceRoot = require('find-yarn-workspace-root');
+const path = require('path');
+const mkdirp = require('mkdirp');
 
-export const listDir = (dir: string): string[] => {
+const listDir = dir => {
   try {
     return fs.readdirSync(dir);
   } catch (e) {
@@ -14,7 +14,7 @@ export const listDir = (dir: string): string[] => {
   }
 };
 
-export const getFileStats = (filePath: string): Stats | null => {
+const getFileStats = filePath => {
   try {
     return fs.statSync(filePath);
   } catch (e) {
@@ -25,7 +25,7 @@ export const getFileStats = (filePath: string): Stats | null => {
   }
 };
 
-export const symlinkPackage = (rootPath: string, pkgName: string) => {
+const symlinkPackage = (rootPath, pkgName) => {
   const nodeModulesPath = path.join(rootPath, 'node_modules');
   const packagePath = path.join(
     nodeModulesPath,
@@ -66,13 +66,11 @@ export const symlinkPackage = (rootPath: string, pkgName: string) => {
   }
 };
 
-export const getModuleSymlink = (
-  packagePath: string
-): { [name: string]: string } => {
+const getModuleSymlink = packagePath => {
   const nodeModulesPath = path.join(packagePath, 'node_modules');
   const dirs = listDir(nodeModulesPath);
 
-  const modules: { [name: string]: string } = {};
+  const modules = {};
 
   for (let dir of dirs) {
     if (dir.startsWith('@')) {
@@ -98,4 +96,11 @@ export const getModuleSymlink = (
   }
 
   return modules;
+};
+
+module.exports = {
+  listDir,
+  getFileStats,
+  symlinkPackage,
+  getModuleSymlink
 };

@@ -1,13 +1,11 @@
-import findYarnWorkspaceRoot from 'find-yarn-workspace-root';
-import path from 'path';
-import { getModuleSymlink } from './utils';
+const findYarnWorkspaceRoot = require('find-yarn-workspace-root');
+const path = require('path');
+const { getModuleSymlink } = require('./utils');
 
-export default (
-  projectPath: string
-): { watchFolders: string[]; extraNodeModules: { [name: string]: string } } => {
+const getConfig = projectPath => {
   projectPath = path.resolve(projectPath);
 
-  const watchFolders: string[] = [];
+  const watchFolders = [];
   let extraNodeModules = {
     ...getModuleSymlink(projectPath)
   };
@@ -26,3 +24,5 @@ export default (
     extraNodeModules
   };
 };
+
+module.exports = getConfig;
