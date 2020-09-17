@@ -33,7 +33,7 @@ If the file does not exist, create it.
 const {
   extraNodeModules,
   watchFolders
-} = require('react-native-yarn-workspace').default();
+} = require('react-native-yarn-workspace').default(__dirname);
 
 module.exports = {
   watchFolders,
