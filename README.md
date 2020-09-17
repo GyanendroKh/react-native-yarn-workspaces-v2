@@ -7,7 +7,7 @@ React Native support for Yarn Workspaces.
 This package only run on `macOs` and `Linux` and haven't tested on `ios`.  
 To use this package you have to create the react native project using `npx react-native init`. If you are using `expo`, use [expo-yarn-workspaces](https://github.com/expo/expo/tree/master/packages/expo-yarn-workspaces) instead.
 
-**Inspired by** [expo-yarn-workspaces](https://github.com/expo/expo/tree/master/packages/expo-yarn-workspaces). The inner working of this package is same as `expo-yarn-workspaces`, check it for more details. This package is specifically tweaked to work with `bare react-native` project.
+**Inspired by [expo-yarn-workspaces](https://github.com/expo/expo/tree/master/packages/expo-yarn-workspaces)**. The inner working of this package is same as `expo-yarn-workspaces`, check it for more details. This package is specifically tweaked to work with `bare react-native` project.
 
 # Installation
 
@@ -54,6 +54,29 @@ module.exports = {
 ```
 
 This will tell the `metro bundler` to look for packages on the `yarn workspaces`' root `node_modules` directory and resolve all the `symlink` to their real path.
+
+### Adding additional packages to symlink.
+To add additional packages to symlink. Add `workspaces-symlink` inside `package.json` with the packages you want to symlink as value (array).   
+
+Example:
+```json
+// package.json
+{
+  ...
+  "workspaces-symlink": [
+    "react-native-vector-icons"
+  ]
+}
+```
+**(Android)**   
+If you configure [`react-native-vector-icons`](https://github.com/oblador/react-native-vector-icons).
+```gradle
+project.ext.vectoricons = [
+   iconFontNames: [ 'MaterialCommunityIcons.ttf' ]
+]
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+```
+And add the above in your `app/build.gradle` file it won't work. The `fonts.gradle` is located at the workspace root `node_modules`. So, you either have to specify the path to the workspace root `node_modules` or symlink the package to make it work.
 
 # LICENSE
 
