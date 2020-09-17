@@ -1,6 +1,17 @@
 {
   "name": "react-native-yarn-workspace",
-  "version": "0.0.1",
+  "description": "React Native support for Yarn Workspace.",
+  "keywords": [
+    "node",
+    "react",
+    "react-native",
+    "yarn",
+    "yarn-workspaces",
+    "monorepo",
+    "javascript",
+    "typescript"
+  ],
+  "version": "0.0.2",
   "main": "./dist/index.js",
   "bin": "./dist/symlink.js",
   "types": "./dist/index.d.ts",
@@ -9,6 +20,11 @@
     "name": "Gyanendro Kh",
     "email": "khgyanendro77@gmail.com",
     "url": "https://gyanendrokh.github.io"
+  },
+  "homepage": "https://github.com/GyanendroKh/react-native-yarn-workspace",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GyanendroKh/react-native-yarn-workspace.git"
   },
   "scripts": {
     "build": "tsc",
