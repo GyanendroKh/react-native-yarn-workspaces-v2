@@ -1,4 +1,4 @@
-# react-native-yarn-workspace
+# react-native-yarn-workspaces
 
 React Native support for Yarn Workspaces.
 
@@ -14,16 +14,16 @@ To use this package you have to create the react native project using `npx react
 Install the package as a dev dependency.
 
 ```console
-foo@bar:~$ yarn add -D react-native-yarn-workspace
+foo@bar:~$ yarn add -D react-native-yarn-workspaces
 or
-foo@bar:~$ npm i --save-dev react-native-yarn-workspace
+foo@bar:~$ npm i --save-dev react-native-yarn-workspaces
 ```
 
 # Usage
 
 ### Add a `postinstall` script to `package.json`
 
-Add `"postinstall": "react-native-yarn-workspace"` under the script object in the app's `package.json`.
+Add `"postinstall": "react-native-yarn-workspaces"` under the script object in the app's `package.json`.
 
 ### Modify `metro.config.js`.
 
@@ -33,7 +33,7 @@ If the file does not exist, create it.
 const {
   extraNodeModules,
   watchFolders
-} = require('react-native-yarn-workspace').default(__dirname);
+} = require('react-native-yarn-workspaces').default(__dirname);
 
 module.exports = {
   watchFolders,
@@ -57,5 +57,5 @@ This will tell the `metro bundler` to look for packages on the `yarn workspaces`
 
 # LICENSE
 
-- [Copyright (c) 2020 Gyanendro Kh](https://github.com/GyanendroKh/react-native-yarn-workspace/blob/master/LICENSE)
+- [Copyright (c) 2020 Gyanendro Kh](https://github.com/GyanendroKh/react-native-yarn-workspaces/blob/master/LICENSE)
 - [Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)](https://github.com/expo/expo/blob/master/LICENSE)
