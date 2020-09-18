@@ -1,4 +1,4 @@
-# react-native-yarn-workspaces
+# react-native-yarn-workspaces-v2
 
 React Native support for Yarn Workspaces.
 
@@ -14,16 +14,16 @@ To use this package you have to create the react native project using `npx react
 Install the package as a dev dependency.
 
 ```console
-foo@bar:~$ yarn add -D react-native-yarn-workspaces
+foo@bar:~$ yarn add -D react-native-yarn-workspaces-v2
 or
-foo@bar:~$ npm i --save-dev react-native-yarn-workspaces
+foo@bar:~$ npm i --save-dev react-native-yarn-workspaces-v2
 ```
 
 # Usage
 
 ### Add a `postinstall` script to `package.json`
 
-Add `"postinstall": "react-native-yarn-workspaces"` under the script object in the app's `package.json`.
+Add `"postinstall": "react-native-yarn-workspaces-v2"` under the script object in the app's `package.json`.
 
 ### Modify `metro.config.js`.
 
@@ -33,7 +33,7 @@ If the file does not exist, create it.
 const {
   extraNodeModules,
   watchFolders
-} = require('react-native-yarn-workspaces').default(__dirname);
+} = require('react-native-yarn-workspaces-v2').default(__dirname);
 
 module.exports = {
   watchFolders,
@@ -80,5 +80,5 @@ And add the above in your `app/build.gradle` file it won't work. The `fonts.grad
 
 # LICENSE
 
-- [Copyright (c) 2020 Gyanendro Kh](https://github.com/GyanendroKh/react-native-yarn-workspaces/blob/master/LICENSE)
+- [Copyright (c) 2020 Gyanendro Kh](https://github.com/GyanendroKh/react-native-yarn-workspaces-v2/blob/master/LICENSE)
 - [Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)](https://github.com/expo/expo/blob/master/LICENSE)
